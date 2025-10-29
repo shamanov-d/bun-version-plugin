@@ -1,0 +1,34 @@
+{
+  "name": "@shamanov-d/bun-version-plugin",
+  "version": "2025.4.1",
+  "description": "Plugin to copy files in bun build step",
+  "module": "index.ts",
+  "type": "module",
+  "author": "shamanov-d",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "require": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shamanov-d/bun-version-plugin.git"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun-plugin-dts": "^0.3.0",
+    "typescript": "^5",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "bun-filter-package-plugin": "2025.4.5"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.ts\" && eslint \"**/*.ts\" --fix",
+    "build": "rm -Rf dist &&bun run build.ts && cp README.md ./dist && cp -R ./src ./dist && npm publish ./dist"
+  }
+}
